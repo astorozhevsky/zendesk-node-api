@@ -8,8 +8,7 @@ var Accessor = function(config, single, plural){
       return new Promise(function(fufill, reject){
         var urlParams = params ? '?' + params : '';
         zdrequest.get('/' + plural + '.json' + urlParams).then(function(data){
-          var key = plural === 'search' ? 'results' : plural
-          fufill(data[key])
+          fufill(data)
         }).catch(function(err){
           reject(err)
         })
